@@ -16,17 +16,20 @@ function draw()
 {
     background(25);
     credits();
+    // borders();
 
 
     this.c.rand_move();
     this.c.update();
     this.c.show();
 
-    pop.forEach(cell => {
+    this.pop.forEach(cell => {
         cell.rand_move();
         cell.update();
         cell.show();
     });
+
+    // for (let i = 0; i < this.pop)
 }
 
 function credits()
@@ -36,4 +39,12 @@ function credits()
     textSize(15);
     textAlign(LEFT, BOTTOM);
     text("Mitosis\nHussein Elguindi", 10, -30, width, height);
+}
+
+function borders()
+{
+    noFill();
+    stroke(255, 0, 0);
+    strokeWeight(5)
+    rect(50, 50, width-100, height-100);
 }

@@ -4,10 +4,13 @@ function setup()
     createCanvas(windowWidth, windowHeight);
     c = new Cell();
 
+    area = width * height;
+    num = int(area * 0.00002);
+
     population = [];
-    for (let i = 0; i < 25; i++)
+    for (let i = 0; i < num; i++)
     {
-        population[i] = new Cell()
+        population[i] = new Cell();
     }
 }
 

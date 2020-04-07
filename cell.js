@@ -22,47 +22,26 @@ class Cell
     update() 
     {
         let e = 50;
-        let s = (50*this.scale)/2;
 
         this.vel.add(this.acc);
         this.vel.limit(this.maxSpeed);
 
         // prevent from going out of bounds
         let i = p5.Vector.add(this.pos, this.vel);
-        // if (!(i.x <= e || i.x >= width-e || i.y <= e || i.y >= height-e))
-        // {
-        //     // this.pos.add(this.vel);
-        //     this.pos = i;
-        // }
-
-        // console.log(!(i.y < e || i.y > width-e));
 
         if (i.x < e || i.x > (width-e))
-        {
-            // this.dna.color = [255, 0, 0];
-            
+        {            
             this.vel.x *= -5;
             this.pos.x += this.vel.x;
         }
-        else
-        {
-            // this.dna.color = [0, 255, 0]; 
-            this.pos.x = i.x;
-        }
+        else this.pos.x = i.x;
         
-
         if (i.y < e || i.y > (height-e))
         {
-            // this.dna.color = [255, 0, 0];
-
             this.vel.y *= -5;
             this.pos.y += this.vel.y;
         }
-        else 
-        {
-            // this.dna.color = [0, 255, 0]; 
-            this.pos.y = i.y;
-        }
+        else this.pos.y = i.y;
         
     }
 
@@ -73,5 +52,10 @@ class Cell
         fill(this.dna.color[0], this.dna.color[1], this.dna.color[2], 255);
         ellipseMode(CENTER);
         ellipse(this.pos.x, this.pos.y, 50*this.scale, 50*this.scale);
+    }
+
+    clicked()
+    {
+        this.dna.color = [0, 0, 255];
     }
 }

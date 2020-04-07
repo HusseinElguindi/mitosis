@@ -1,30 +1,17 @@
 class Cell
 {
-    pos = createVector(random(50, width-50), random(50, height-50));
-    acc = createVector(0, 0);
-    vel = createVector(0, 0);
-
-    scale = random(0.8, 1.7);
-    maxSpeed = random(0.5, 1);
-
-    dna = {
-        color: [random(255), random(255), random(255)]
-    };
-
     constructor()
     {
-        
-    }
+        this.pos = createVector(random(50, width-50), random(50, height-50));
+        this.acc = createVector(0, 0);
+        this.vel = createVector(0, 0);
 
-    seek(targetPos)
-    {
-        var desired = p5.Vector.sub(targetPos, this.pos);
-        // desired.setMag(this.maxSpeed)
+        this.scale = random(0.8, 1.7);
+        this.maxSpeed = random(0.5, 1);
 
-        var steer = desired.sub(this.vel);
-        // steer.limit(this.maxSpeed);
-
-        this.acc.add(steer);
+        this.dna = {
+            color: [random(255), random(255), random(255)]
+        };
     }
 
     rand_move()

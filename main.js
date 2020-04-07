@@ -23,13 +23,19 @@ function draw()
     this.c.update();
     this.c.show();
 
-    this.population.forEach(cell => {
+    // this.population.forEach(cell => {
+    //     cell.rand_move();
+    //     cell.update();
+    //     cell.show();
+    // });
+
+    for (let i = 0; i < this.population.length; i++)
+    {
+        let cell = this.population[i];
         cell.rand_move();
         cell.update();
         cell.show();
-    });
-
-    // for (let i = 0; i < this.pop)
+    }
 }
 
 function credits()

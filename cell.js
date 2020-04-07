@@ -1,7 +1,9 @@
 class Cell
 {
     constructor()
-    {
+    {   
+        this.border = 20;
+
         this.pos = createVector(random(50, width-50), random(50, height-50));
         this.acc = createVector(0, 0);
         this.vel = createVector(0, 0);
@@ -21,7 +23,7 @@ class Cell
 
     update() 
     {
-        let e = 50;
+        let e = this.border;
 
         this.vel.add(this.acc);
         this.vel.limit(this.maxSpeed);

@@ -18,10 +18,6 @@ function draw()
     credits();
     // borders();
 
-    this.c.rand_move();
-    this.c.update();
-    this.c.show();
-
     let len = this.population.length;
     for (let i = 0; i < len; i++)
     {
@@ -47,13 +43,13 @@ function borders()
     noFill();
     stroke(255, 0, 0);
     strokeWeight(5)
-    rect(50, 50, width-100, height-100);
+    rect(c.border, c.border, width-(c.border*2), height-(c.border*2));
 }
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
     this.population.forEach(cell => {
-        cell.pos = createVector(random(50, width-50), random(50, height-50));
+        cell.pos = createVector(random(c.border, width-c.border), random(c.border, height-c.border));
     });
 }
 

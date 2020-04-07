@@ -4,10 +4,10 @@ function setup()
     createCanvas(windowWidth, windowHeight);
     c = new Cell();
 
-    pop = [];
+    population = [];
     for (let i = 0; i < 25; i++)
     {
-        pop[i] = new Cell()
+        population[i] = new Cell()
     }
 }
 
@@ -23,7 +23,7 @@ function draw()
     this.c.update();
     this.c.show();
 
-    this.pop.forEach(cell => {
+    this.population.forEach(cell => {
         cell.rand_move();
         cell.update();
         cell.show();

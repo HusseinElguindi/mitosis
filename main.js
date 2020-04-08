@@ -4,11 +4,7 @@ function setup()
     createCanvas(windowWidth, windowHeight);
     c = new Cell();
 
-    population = [];
-    for (let i = 0; i < 25; i++)
-    {
-        population[i] = new Cell();
-    }
+    population = new Population(25);
 }
 
 
@@ -18,15 +14,7 @@ function draw()
     credits();
     // borders();
 
-    let len = this.population.length;
-    for (let i = 0; i < len; i++)
-    {
-        let cell = this.population[i];
-
-        cell.rand_move();
-        cell.update();
-        cell.show();
-    }
+    population.update_all();
 }
 
 function credits()
@@ -48,23 +36,17 @@ function borders()
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
-    this.population.forEach(cell => {
+    this.population.members.forEach(cell => {
         cell.pos = createVector(random(c.border, width-c.border), random(c.border, height-c.border));
     });
 }
 
 function mousePressed()
 {
-    let len = this.population.length;
-    for (let i = len-1; i >= 0; i--)
-    {
-        let cell = this.population[i];
-        let d = cell.pos.dist(createVector(mouseX, mouseY));
+    this.population.clicked();
+}
 
-        if (d <= ((50*cell.scale)/2))
-        {
-            cell.clicked();
-            break;
-        }
-    }
+function touchStarted()
+{
+    this.population.clicked();
 }

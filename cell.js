@@ -8,17 +8,26 @@ class Cell
         this.acc = createVector(0, 0);
         this.vel = createVector(0, 0);
 
-        this.scale = random(0.8, 1.7);
-        this.maxSpeed = random(0.5, 1);
+        this.maxScale = random(0.6, 1.5);
+        this.scale = random(0.6, this.maxScale);
 
         this.dna = {
-            color: [random(255), random(255), random(255)]
+            color: [random(255), random(255), random(255)],
+            maxSpeed: random(0.5, 1)
         };
     }
 
     rand_move()
     {
-        this.acc = createVector(random(-1, 1), random(-1, 1));
+        this.acc = createVector(random(-10, 10), random(-10, 10));
+    }
+
+    grow()
+    {
+        if (this.scale < this.maxScale && random() < 0.65)
+        {
+            this.scale += 0.001; 
+        }
     }
 
     update() 
@@ -26,7 +35,7 @@ class Cell
         let e = this.border;
 
         this.vel.add(this.acc);
-        this.vel.limit(this.maxSpeed);
+        this.vel.limit(this.dna.maxSpeed);
 
         // prevent from going out of bounds
         let i = p5.Vector.add(this.pos, this.vel);
@@ -51,13 +60,23 @@ class Cell
     {
         stroke(255);
         strokeWeight(1);
-        fill(this.dna.color[0], this.dna.color[1], this.dna.color[2], 255);
+        fill(this.dna.color[0], this.dna.color[1], this.dna.color[2], 200);
         ellipseMode(CENTER);
         ellipse(this.pos.x, this.pos.y, 50*this.scale, 50*this.scale);
     }
 
-    clicked()
-    {
-        this.dna.color = [0, 0, 255];
-    }
+    // clicked()
+    // {
+    //     this.dna.color = [0, 0, 255];
+    // }
+
+    // mitosis()
+    // {
+    //     for (let i = 0; i < 2; i++)
+    //     {
+    //         let c = new Cell();
+    //         c.dna = this.dna;
+    //         c.scale = this.scale/2;
+    //     }
+    // }
 }

@@ -11,10 +11,12 @@ function setup()
 function draw()
 {
     background(25);
-    credits();
-    // borders();
 
     population.update_all();
+
+    stats();
+    credits();
+    // borders();
 }
 
 function credits()
@@ -24,6 +26,15 @@ function credits()
     textSize(15);
     textAlign(LEFT, BOTTOM);
     text("Mitosis\nHussein Elguindi", 10, -30, width, height);
+}
+
+function stats()
+{
+    noStroke();
+    fill(200);
+    textSize(15);
+    textAlign(LEFT, TOP);
+    text(`Cells: ${this.population.members.length}`, 10, 10, width, height);
 }
 
 function borders()

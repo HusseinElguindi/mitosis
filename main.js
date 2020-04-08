@@ -22,7 +22,7 @@ function draw()
 function credits()
 {
     noStroke();
-    fill(200);
+    fill(255);
     textSize(15);
     textAlign(LEFT, BOTTOM);
     text("Mitosis\nHussein Elguindi", 10, -30, width, height);
@@ -31,7 +31,7 @@ function credits()
 function stats()
 {
     noStroke();
-    fill(200);
+    fill(255);
     textSize(15);
     textAlign(LEFT, TOP);
     text(`Cells: ${this.population.members.length}`, 10, 10, width, height);

@@ -61,3 +61,13 @@ function touchStarted()
 {
     this.population.clicked();
 }
+
+function mouseDragged()
+{
+    this.population.dragged();
+}
+
+function touchMoved()
+{
+    this.population.dragged();
+}

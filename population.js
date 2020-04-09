@@ -60,4 +60,20 @@ class Population
         
         this.divisions++;
     }
+
+    dragged()
+    {
+        let len = this.members.length;
+        for (let i = len-1; i >= 0; i--)
+        {
+            let cell = this.members[i];
+            let d = cell.pos.dist(createVector(mouseX, mouseY));
+
+            if (d <= ((50*cell.scale)/2))
+            {
+                if (this.members.length > 1) this.members.splice(i, 1);
+                break;
+            }
+        }
+    }
 }

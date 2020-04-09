@@ -34,7 +34,7 @@ function stats()
     fill(255);
     textSize(15);
     textAlign(LEFT, TOP);
-    text(`Cells: ${this.population.members.length}`, 10, 10, width, height);
+    text(`Cells: ${this.population.members.length}\nDivisions: ${this.population.divisions}`, 10, 10, width, height);
 }
 
 function borders()

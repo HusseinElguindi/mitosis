@@ -2,6 +2,7 @@ class Population
 {
     constructor(num)
     {
+        this.divisions = 0;
         this.members = [];
         for (let i = 0; i < num; i++)
         {
@@ -56,5 +57,7 @@ class Population
             // c.pos.x += (30 * i);
             this.members.push(c);
         }
+        
+        this.divisions++;
     }
 }

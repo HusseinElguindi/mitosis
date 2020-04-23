@@ -50,6 +50,7 @@ class Population
             var c = new Cell();
             c.dna = cell.dna;
             c.scale = (cell.scale/2);
+            c.nucleusOffset = c.calcNucleusPos();
 
             if (i == 0) c.pos = p5.Vector.add(cell.pos, createVector((50*c.scale*1.5)/2, 0));
             else c.pos = cell.pos;

@@ -74,6 +74,7 @@ function settings()
 
     fill(255);
     rect(width/2, height/2, w, h);
+    
 
     rectMode(CORNER);
 }
@@ -128,22 +129,24 @@ function windowResized() {
     });
 }
 
-function mousePressed()
-{
-    this.population.clicked();
-}
+// function mousePressed()
+// {
+//     this.population.clicked();
+// }
 
 function touchStarted()
 {
+    if (settingsWin) return;
     this.population.clicked();
 }
 
-function mouseDragged()
-{
-    this.population.dragged();
-}
+// function mouseDragged()
+// {
+//     this.population.dragged();
+// }
 
 function touchMoved()
 {
+    if (settingsWin) return;
     this.population.dragged();
 }

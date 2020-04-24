@@ -1,3 +1,8 @@
+// HUSSEIN ELGUINDI
+// MITOSIS SIMULATION 2020
+
+// TODO: daughter cells disperse in different directions, not just left and right
+
 var resets = 0;
 var settingsWin;
 
@@ -25,7 +30,7 @@ function draw()
 
     population.update_all();
     
-    if (settingsWin) settingTest();
+    // if (settingsWin) settingTest();
     stats();
     credits();
     // borders();
@@ -46,10 +51,12 @@ function drawSettingBtn()
     this.settingsBtn.addClass("classicBtn");
     this.settingsBtn.size(70, 30);
     this.settingsBtn.position(width-10-70, 45);
-    this.settingsBtn.mousePressed(function () {
-        if (settingsWin) settingsWin = false;
-        else settingsWin = true;
-    });
+    // this.settingsBtn.mousePressed(function () {
+    //     if (settingsWin) settingsWin = false;
+    //     else settingsWin = true;
+    // });
+
+    this.settingsBtn.mousePressed(settings);
 }
 
 function resetAll()
@@ -60,42 +67,16 @@ function resetAll()
 
 function settings()
 {
-    rectMode(CENTER);
-    let w = width * 0.8
-    let h = height * 0.7
-
-    if (w > (h * 0.9))
+    if (settingsWin) 
     {
-        w = h * 0.9;
+        document.getElementById("menuDiv").style.display = "none";
+        settingsWin = false;
     }
-    else if (h > (1.5 * w))
+    else 
     {
-        h = 1.5 * w;
+        document.getElementById("menuDiv").style.display = "block";
+        settingsWin = true;
     }
-
-    strokeWeight(2);
-    stroke(255, 255, 255);
-    fill(25, 25, 25);
-    rect(width/2, height/2, w, h, 20);
-
-    // rectMode(CORNER);
-    noStroke();
-    fill(255);
-    textSize(25);
-    // textStyle(BOLD);
-    textAlign(LEFT, TOP);
-    let tWidth = textWidth("Settings");
-    let a = (height-h)/2;
-    text("Settings", (width/2), 300, tWidth, height/2);
-
-    // reset rectmode
-    rectMode(CORNER);
-}
-
-function settingTest()
-{
-    let menu = createDiv();
-
 }
 
 
@@ -136,24 +117,23 @@ function windowResized() {
     });
 }
 
-// function mousePressed()
-// {
-//     this.population.clicked();
-// }
-
 function touchStarted()
 {
     if (settingsWin) return;
     this.population.clicked();
 }
 
-// function mouseDragged()
-// {
-//     this.population.dragged();
-// }
-
 function touchMoved()
 {
     if (settingsWin) return;
     this.population.dragged();
 }
+
+function cellSliderInput()
+{
+    let count = document.getElementById("cellCount").value;
+    document.getElementById("settingCellCount").innerHTML = `${count} cells`;
+
+    population.resize(count);
+}
+

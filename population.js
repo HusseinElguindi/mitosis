@@ -77,4 +77,21 @@ class Population
             }
         }
     }
+
+    resize(num)
+    {
+        var len = this.members.length;
+
+        while (len > num)
+        {
+            this.members.splice(int(random(len)), 1);
+            len -= 1;
+        }
+
+        while (len < num)
+        {
+            this.members.push(new Cell());
+            len += 1;
+        }
+    }
 }

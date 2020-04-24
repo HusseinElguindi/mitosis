@@ -35,6 +35,78 @@ canvas {
     color: rgb(25,25,25);
 }
 
-.menuDiv {
+#menuDiv {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: rgb(25,25,25);
+    border: 2px solid white;
+    border-radius: 20px;
+
+    width: 80%;
+    height: 70%;
+
+    max-width: 645px;
+    max-height: 400px;
+}
+
+.titleText {
+    color: white;
+    font-size: 25px;
+    text-align: center;
+}
+
+#sliderWrapper {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+
+    text-align: center;
+    color: white;
+}
+
+#sliderWrapper p {
+    margin: 0;
+    padding: 0;
+    padding-bottom: 10px;
+}
+
+.slider {
+    display: block;
+    margin: 0;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
     
+    -webkit-appearance: none; 
+    appearance: none;
+    background: rgb(25, 25, 25);
+    outline: none;
+
+    width: 50%;
+    min-width: 200px;
+    height: 15px;
+    
+    border: 1px solid white;
+    border-radius: 20px;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; 
+    appearance: none;
+    cursor: pointer;
+
+    width: 40px;
+    height: 15px;
+
+    border-radius: 20px;
+    border: none;
+    background-color: white;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
 }

@@ -8,6 +8,9 @@ var settingsWin;
 
 function setup()
 {
+    document.getElementById("menuDiv").style.display = "block";
+    settingsWin = true;
+
     frameRate(60);
     createCanvas(windowWidth, windowHeight);
    
@@ -36,12 +39,23 @@ function draw()
     // borders();
 }
 
+function drawMitosisDeleteBtn()
+{
+    var btn = createButton("Mitosis");
+    btn.addClass("classicBtn");
+    btn.size(70, 30);
+    btn.position(width-10-70, 10);
+
+    btn.mousePressed(resetAll);
+}
+
 function drawResetBtn()
 {
     this.resetBtn = createButton("Reset");
     this.resetBtn.addClass("classicBtn");
     this.resetBtn.size(70, 30);
     this.resetBtn.position(width-10-70, 10);
+
     this.resetBtn.mousePressed(resetAll);
 }
 
@@ -51,10 +65,6 @@ function drawSettingBtn()
     this.settingsBtn.addClass("classicBtn");
     this.settingsBtn.size(70, 30);
     this.settingsBtn.position(width-10-70, 45);
-    // this.settingsBtn.mousePressed(function () {
-    //     if (settingsWin) settingsWin = false;
-    //     else settingsWin = true;
-    // });
 
     this.settingsBtn.mousePressed(settings);
 }
@@ -74,6 +84,15 @@ function settings()
     }
     else 
     {
+        if (population.members.length == 1) 
+        {
+            document.getElementById("settingCellCount").innerHTML = "1 cell";
+        }
+        else document.getElementById("settingCellCount").innerHTML = `${population.members.length} cells`;
+
+        let rounded = Math.round(population.members.length/5) * 5;
+        document.getElementById("cellCount").value = rounded;
+
         document.getElementById("menuDiv").style.display = "block";
         settingsWin = true;
     }

@@ -27,6 +27,7 @@ canvas {
     border-radius: 20px;
     
     user-select: none;
+    cursor: pointer;
 }   
 
 .classicBtn:hover {

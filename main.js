@@ -8,12 +8,15 @@ var settingsWin;
 
 function setup()
 {
+
     // document.getElementById("menuDiv").style.display = "block";
     // settingsWin = true;
 
     frameRate(60);
     createCanvas(windowWidth, windowHeight);
    
+
+    document.getElementById("menuDiv").style.display = "none"
     settingsWin = false;
 
     c = new Cell();

@@ -17,9 +17,22 @@
         <script src="main.js"></script>
         <div id="menuDiv" style="display: none;">
             <p class="titleText">Settings</p>
-            <div id="sliderWrapper">
-                <p id="settingCellCount">25 cells</p>
-                <input type="range" min="5" max="100" value="25" step="5" class="slider" id="cellCount" oninput="cellSliderInput();">
+
+            <div class="row">
+                <div class="box">
+                    <div id="sliderWrapper">
+                        <p id="settingCellCount">25 cells</p>
+                        <input type="range" min="5" max="100" value="25" step="5" class="slider" id="cellCount" oninput="cellSliderInput();">
+                    </div>
+                </div>
+                <!-- <div class="box">
+                    <div id="modeWrapper">
+                        <p id="modeInfo">Click or tap on a button to select a mode.</p>
+                        <button class="classicBtn modeBtn">Create</button>
+                        <button class="classicBtn modeBtn">None</button>
+                        <button class="classicBtn modeBtn">Delete</button>
+                    </div>
+                </div> -->
             </div>
         </div>
     </body>

@@ -2,21 +2,17 @@
 // MITOSIS SIMULATION 2020
 
 // TODO: daughter cells disperse in different directions, not just left and right
-
+// TODO: for settings page, add blocks for each setting. https://www.w3schools.com/css/tryit.asp?filename=trycss_mediaqueries_flex
 var resets = 0;
 var settingsWin;
+var FPS;
 
 function setup()
 {
-
-    // document.getElementById("menuDiv").style.display = "block";
-    // settingsWin = true;
-
     frameRate(60);
     createCanvas(windowWidth, windowHeight);
    
-
-    document.getElementById("menuDiv").style.display = "none"
+    document.getElementById("menuDiv").style.display = "none";
     settingsWin = false;
 
     c = new Cell();
@@ -27,6 +23,9 @@ function setup()
         drawResetBtn();
         drawSettingBtn();
     } 
+
+    // document.getElementById("menuDiv").style.display = "block";
+    // settingsWin = true;
 }
 
 
@@ -39,6 +38,8 @@ function draw()
     // if (settingsWin) settingTest();
     stats();
     credits();
+
+    showFPS();
     // borders();
 }
 
@@ -118,6 +119,21 @@ function stats()
     textSize(15);
     textAlign(LEFT, TOP);
     text(`Cells: ${this.population.members.length}\nDivisions: ${this.population.divisions}`, 10, 10, width, height);
+}
+
+function showFPS()
+{
+    if (frameCount % 5 == 0)
+    {
+        // FPS = Math.trunc(frameRate());
+        FPS = frameRate().toFixed(2);
+    }
+
+    noStroke();
+    fill(255);
+    textSize(15);
+    textAlign(LEFT, BOTTOM);
+    text(FPS + " FPS", width-71-10, height-10);
 }
 
 function borders()
